@@ -22,7 +22,6 @@ class SessionsController extends Controller
 
         if(auth()->attempt($attributes))
         {
-            Notification::send(auth(), new InvoicePaid(123));
             return redirect('/')->with('success','Welcome back');
         }
 

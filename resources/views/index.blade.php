@@ -10,6 +10,7 @@
     @guest
         <a href="/register">Register</a>
         <a href="/login">Log In</a>
+        <a href="send-sms-notification">2FA</a>
     @endguest
 
     @auth

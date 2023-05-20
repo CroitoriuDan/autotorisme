@@ -6,18 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <form method="POST" action="send-sms-notification">
+    <form method="POST" action="2falogin">
         @csrf
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                for="phone">
+                for="code">
             </label>
-                Phone Number
+                Enter the code
             <input class="border border-gray-400 p-2 w-full"
                 type="text"
-                name="phone"
-                id="phone"
-                value="{{old('phone')}}"
+                name="code"
+                id="code"
                 required
             >
 
@@ -27,11 +26,10 @@
                 </button>
             </div>
 
-            @error('phone')
+            @error('code')
                 <p class="text-red-500 text-xs mt-2">{{$message}}</p>
             @enderror
         </div>
     </form>
-
 </body>
 </html>

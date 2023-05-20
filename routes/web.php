@@ -24,4 +24,6 @@ Route::post('logout',[SessionsController::class,'destroy'])->middleware('auth');
 Route::get('login',[SessionsController::class,'create'])->middleware('guest');
 Route::post('login',[SessionsController::class,'store'])->middleware('guest');
 
-Route::get('send-sms-notification',[NotificationController::class,'sendSmsNotification']);
+Route::post('send-sms-notification',[NotificationController::class,'sendSmsNotification'])->middleware('guest');
+Route::post('2falogin',[NotificationController::class,'store']);
+Route::get('send-sms-notification',[NotificationController::class,'create']);
