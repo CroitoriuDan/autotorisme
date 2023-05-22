@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('autoturism_id');
             $table->string('name');
             $table->string('short');
             $table->string('body');
             $table->float('price');
+            $table->float('kilometers');
             $table->rememberToken();
             $table->timestamps();
         });

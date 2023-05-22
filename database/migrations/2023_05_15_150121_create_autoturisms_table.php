@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('year');
+            $table->string('fabrication');
+            $table->string('brand');
             $table->string('location');
             $table->float('price');
+            $table->float('kilometers');
             $table->timestamps();
         });
     }
@@ -29,3 +32,5 @@ return new class extends Migration
         Schema::dropIfExists('autoturisms');
     }
 };
+
+//create read update delete
