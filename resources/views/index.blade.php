@@ -25,16 +25,34 @@
 
     <form method="GET" action="/">
         <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="search">
+            </label>
+            Search By Name
+            <input class="border border-gray-400 p-2 w-full" type="search" name="search" id="search">
+        </div>
+        <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="location">
+            </label>
+            Search By Location
+            <input class="border border-gray-400 p-2 w-full" type="search" name="location" id="location">
+        </div>
+        <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="brand">
+            </label>
+            Search By Brand
+            <input class="border border-gray-400 p-2 w-full" type="search" name="brand" id="brand">
+        </div>
+        <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="kilometers">
             </label>
             Search By Kilometers
             <input class="border border-gray-400 p-2 w-full" type="search" name="kilometers" id="kilometers">
         </div>
         <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="search">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="price">
             </label>
-            Search By Name
-            <input class="border border-gray-400 p-2 w-full" type="search" name="search" id="search">
+            Search By Price
+            <input class="border border-gray-400 p-2 w-full" type="search" name="price" id="price">
         </div>
         <div class="mb-6">
             <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
