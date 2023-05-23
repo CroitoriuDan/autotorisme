@@ -18,6 +18,8 @@ use App\Http\Controllers\NotificationController;
 */
 
 Route::get('/',[PostController::class,'index']);
+Route::get('/posts/{post:id}', [PostController::class,'show']);
+
 Route::get('register',[RegisterController::class,'create'])->middleware('guest');
 Route::post('register',[RegisterController::class,'store'])->middleware('guest');
 Route::post('logout',[SessionsController::class,'destroy'])->middleware('auth');
