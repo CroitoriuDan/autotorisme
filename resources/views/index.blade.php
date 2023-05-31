@@ -26,8 +26,8 @@
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-				<li><a href="#">Login </a> </li>
-				<li><a href="#"><span class="register">Register</span></a></li>
+				<li><a href="/login">Login </a> </li>
+				<li><a href="/register"><span class="register">Register</span></a></li>
 			</ul>
 	</div>
 	<!-- Navbar Up -->
@@ -41,11 +41,11 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand logo" href="#"><img src="image/logo1.png" alt="logo"></a>
-			</div>	 
+			</div>
 		</div>
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
-				<li class="active"><a href="#">HOME</a> </li>
+				<li class="active"><a href="">HOME</a> </li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES <span class="caret"></span></a>
 					<ul class="dropdown-menu dropdowncostume">
@@ -64,7 +64,7 @@
 				</li>
 				<li>
 					<a href="contact.html">CONTACT</a>
- 
+
 				</li>
 				<button><span class="postnewcar">POST NEW CAR</span></button>
 			</ul>
@@ -114,12 +114,49 @@
 				<div class="searchtxt">
 					<h1>SEARCH TEXT</h1>
 				</div>
-				<form class="navbar-form navbar-left searchformmargin" role="search">
-					<div class="form-group">
+				<form method="GET" action="/" class="navbar-form navbar-left searchformmargin" role="search">
+                    <div class="form-group">
+                    <div class="mb-6">
+                        <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="search">
+                        </label>
+                        Search By Name
+                        <input class="border border-gray-400 p-2 w-full" type="search" name="search" id="search">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="location">
+                        </label>
+                        Search By Location
+                        <input class="border border-gray-400 p-2 w-full" type="search" name="location" id="location">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="brand">
+                        </label>
+                        Search By Brand
+                        <input class="border border-gray-400 p-2 w-full" type="search" name="brand" id="brand">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="kilometers">
+                        </label>
+                        Search By Kilometers
+                        <input class="border border-gray-400 p-2 w-full" type="search" name="kilometers" id="kilometers">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="price">
+                        </label>
+                        Search By Price
+                        <input class="border border-gray-400 p-2 w-full" type="search" name="price" id="price">
+                    </div>
+                    </div>
+                    <div class="mb-6">
+                        <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
+                            Submit
+                        </button>
+                    </div>
+					{{-- <div class="form-group">
 						<input type="text" class="form-control searchform" placeholder="Enter Keyword">
-					</div>
+					</div> --}}
 				</form>
-				<ul class="nav navbar-nav navbarborder">
+				{{-- <ul class="nav navbar-nav navbarborder">
 					<li class="li-category">
 						<a class="btn  dropdown-toggle btn-costume"  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Category<span class="glyphicon glyphicon-chevron-down downicon"></span></a>
 						<ul class="dropdown-menu" id="mydd">
@@ -147,22 +184,23 @@
 							<input class="priceslider" type="text" id="amount" readonly="readonly">
 						</p>
 							<div id="slider-range"></div>
-							
+
 					</li>
 					<li class="li-search"> <button class="searchbutton"><span class="glyphicon glyphicon-search "></span></button></li>
-				</ul>
- 
+				</ul> --}}
+
 			</div>
 		</nav>
 	</div>
 </div>
-<!-- ____________________Featured Section ______________________________--> 
+<!-- ____________________Featured Section ______________________________-->
 <div class="allcontain">
 	<div class="feturedsection">
 		<h1 class="text-center"><span class="bdots">&bullet;</span>F E A T U R E S<span class="carstxt">C A R S</span>&bullet;</h1>
 	</div>
 	<div class="feturedimage">
 		<div class="row firstrow">
+            @foreach ($posts as $post)
 			<div class="col-lg-6 costumcol colborder1">
 				<div class="row costumrow">
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img1colon">
@@ -170,50 +208,20 @@
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
 						<div class="featurecontant">
-							<h1>LOREM IPSUM</h1>
-							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt </p>
-			 				<h2>Price &euro;</h2>
+							<h1>{{$post->name}}</h1>
+							<p>{{$post->short}} </p>
+			 				<h2>Price &euro; {{$post->price}}</h2>
 			 				<button id="btnRM" onclick="rmtxt()">READ MORE</button>
 			 				<div id="readmore">
-			 						<h1>Car Name</h1>
-			 						<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt <br>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1 ,
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1<br>
-			 						</p>
+			 						<h1>{{$post->name}}</h1>
+			 						<p>{{$post->body}}</p>
 			 						<button id="btnRL">READ LESS</button>
 			 				</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-6 costumcol colborder2">
-				<div class="row costumrow">
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img2colon">
-						<img src="{{asset('css/image/featurporch1.jpg')}}" alt="porsche1">
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
-						<div class="featurecontant">
-							<h1>LOREM IPSUM</h1>
-							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt </p>
-			 				<h2>Price &euro;</h2>
-			 				<button id="btnRM2">READ MORE</button>
-			 				<div id="readmore2">
-			 						<h1>Car Name</h1>
-			 						<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt <br>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1 ,
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1<br></p>
-			 						<button id="btnRL2">READ LESS</button>
-			 				</div>
-						</div>
-					</div>
-				</div>
-			</div>
+            @endforeach
 		</div>
 	</div>
 <!-- ________________________LATEST CARS SECTION _______________________-->
@@ -260,7 +268,7 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
 				<div class="txthover">
@@ -288,7 +296,7 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<div class="txthover">
@@ -316,7 +324,7 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<div class="txthover">
@@ -344,7 +352,7 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<div class="txthover">
@@ -372,7 +380,7 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<div class="txthover">
@@ -400,7 +408,7 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<div class="txthover">
@@ -428,7 +436,7 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 				<div class="txthover">
@@ -456,8 +464,8 @@
 								<div class="glyphicon glyphicon-star"></div>
 							</div>
 						</div>
-				</div>	 
-			</div>	
+				</div>
+			</div>
 		</div>
 	</div>
 <!-- _______________________________News Letter ____________________-->
@@ -501,7 +509,7 @@
 				  &copy; Copy right 2016 | <a href="#">Privacy </a>| <a href="#">Policy</a>
 				</div>
 				<div class="atisda">
-					 Designed by <a href="http://www.webdomus.net/">Web Domus Italia - Web Agency </a> 
+					 Designed by <a href="http://www.webdomus.net/">Web Domus Italia - Web Agency </a>
 				</div>
 			</div>
 	</div>
@@ -509,7 +517,7 @@
 
 <script type="text/javascript" src="{{asset('css/bootstrap-3.3.6-dist/js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('css/js/isotope.js')}}"></script>
-<script type="text/javascript" src="{{asset('css/js/myscript.js')}}"></script> 
+<script type="text/javascript" src="{{asset('css/js/myscript.js')}}"></script>
 <script type="text/javascript" src="{{asset('css/bootstrap-3.3.6-dist/js/jquery.1.11.js')}}"></script>
 <script type="text/javascript" src="{{asset('css/bootstrap-3.3.6-dist/js/bootstrap.js')}}"></script>
 </body>
