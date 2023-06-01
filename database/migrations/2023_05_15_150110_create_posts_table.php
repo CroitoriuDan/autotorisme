@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('brand');
             $table->string('location');
             $table->float('price');
+            $table->string('image');
             $table->rememberToken();
             $table->timestamps();
         });
