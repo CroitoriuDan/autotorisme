@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <div class="shadow-inner h-screen flex items-center justify-center">
     <form method="POST" action="2falogin">
         @csrf
         <div class="mb-6">
@@ -31,5 +33,6 @@
             @enderror
         </div>
     </form>
+    </div>
 </body>
 </html>

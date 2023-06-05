@@ -1,3 +1,5 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="shadow-inner h-screen flex items-center justify-center">
 <form method="POST" action="/login">
     @csrf
 
@@ -41,3 +43,4 @@
         </button>
     </div>
 </form>
+</div>

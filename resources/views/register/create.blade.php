@@ -1,5 +1,6 @@
+<script src="https://cdn.tailwindcss.com"></script>
 <main class="max-w-lg mx-auto">
-    <h1>Register</h1>
+    <div class="shadow-inner h-screen flex items-center justify-center mt-3">
     <form method="POST" action="/register">
         @csrf
 
@@ -96,5 +97,5 @@
             </button>
         </div>
     </form>
-
+</div>
 </main>
