@@ -19,7 +19,7 @@ class SessionsController extends Controller
             'email'=>'required|email',
             'password'=> 'required'
         ]);
-
+        dd($attributes);
         if(auth()->attempt($attributes))
         {
             return redirect('/')->with('success','Welcome back');

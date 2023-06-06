@@ -14,11 +14,15 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('autoturism_id');
             $table->string('name');
             $table->string('short');
             $table->string('body');
+            $table->date('year');
+            $table->string('fabrication');
+            $table->string('brand');
+            $table->string('location');
             $table->float('price');
+            $table->string('image');
             $table->rememberToken();
             $table->timestamps();
         });
