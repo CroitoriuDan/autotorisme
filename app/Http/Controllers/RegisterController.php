@@ -22,7 +22,6 @@ class RegisterController extends Controller
             'phone'=>'required|min:7',
             'password'=>'required|min:7|max:255'
         ]);
-        //dd($attributes);
         $user=User::create(['name'=>$attributes["name"],'username'=>$attributes["username"],'email'=>$attributes["email"],'phone'=>$attributes["phone"],'password'=>$attributes["password"],'balance'=>0]);
         auth()->login($user);
         return redirect('/')->with('succes','Welcome, {{$attributes["name"]}}');
