@@ -33,23 +33,16 @@ class Post extends Model
         $query->when($filters['kilometers']??false, fn($query,$kilometers) =>
             $query->where(fn($query)=>
                 $query->whereBetween('kilometers',[$kilometers/1.2,$kilometers*1.2])
-                    // ->orWhere('body','like','%'.$search.'%')
             )
         );
 
         $query->when($filters['price']??false, fn($query,$price) =>
             $query->where(fn($query)=>
                 $query->whereBetween('price',[$price/1.2,$price*1.2])
-                    // ->orWhere('body','like','%'.$search.'%')
             )
         );
 
-        // $query->when($filters['kilometers']??false,fn($query,$autoturism)=>
-        //     $query->whereHas('kilometers',fn($query)=>
-        //         $query->where('autoturism_id',$autoturism)
-
-        //     )
-        // );
+        
     }
 
 }
