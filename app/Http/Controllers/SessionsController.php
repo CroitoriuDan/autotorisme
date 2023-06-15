@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\InvoicePaid;
 
 class SessionsController extends Controller
 {
@@ -15,17 +13,21 @@ class SessionsController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
+        $attributes=request()->validate([
             'email'=>'required|email',
-            'password'=> 'required'
+            'password'=>'required'
         ]);
-        dd($attributes);
-        if(auth()->attempt($attributes))
+
+        if(!auth()->attempt($attributes))
         {
-            return redirect('/')->with('success','Welcome back');
+            return back()
+                ->withInput()
+                ->withErrors(['email' => 'Your provided credentials could not be verified.']);
         }
 
-        return back()->withInput()->withErrors(['email'=>'Your provided credentials could not be verified.']);
+        session()->regenerate();
+
+        return redirect('/')->with('success','Welcome Back!');
     }
 
     public function destroy()

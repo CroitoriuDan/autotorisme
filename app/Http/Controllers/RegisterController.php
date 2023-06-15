@@ -3,28 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Models\User;
 
 class RegisterController extends Controller
 {
-
     public function create()
     {
         return view('register.create');
     }
-
     public function store()
     {
-        $attributes=request()->validate([
-            'name'=>'required|max:255|min:5',
+        //var_dump(request()->all());
+        //create the user
+        $attributes = request()->validate([
+            'name' =>'required|max:255',
             'username'=>'required|max:255|min:3|unique:users,username',
-            'email'=>'required|email|max:255',
             'phone'=>'required|min:7',
+            //'username' => ['required','min:3','max:255',Rule::unique('users','username')],
+            'email'=>'required|email|max:255|unique:users,email',   //no asdasd@asd.com
             'password'=>'required|min:7|max:255'
         ]);
-        //dd($attributes);
-        $user=User::create(['name'=>$attributes["name"],'username'=>$attributes["username"],'email'=>$attributes["email"],'phone'=>$attributes["phone"],'password'=>$attributes["password"],'balance'=>0]);
+
+        $user=User::create($attributes);
+
+        // log the user in
         auth()->login($user);
-        return redirect('/')->with('succes','Welcome, {{$attributes["name"]}}');
+
+        return redirect('/')->with('success','Your account has been created.');
     }
 }
