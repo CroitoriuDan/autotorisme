@@ -9,6 +9,7 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($posts as $post)
+                                @if ($post->user_id==Auth::user()->id or Auth::user()->is_admin==1)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
@@ -39,6 +40,7 @@
                                         </form>
                                     </td>
                                 </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>
