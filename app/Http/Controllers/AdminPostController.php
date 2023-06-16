@@ -25,7 +25,7 @@ class AdminPostController extends Controller
         $attributes = $this->validatePost(new Post());
 
         $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        $attributes['thumbnail'] = request()->file('thumbnail')->store('images');
 
         Post::create($attributes);
 
@@ -42,7 +42,7 @@ class AdminPostController extends Controller
         $attributes = $this->validatePost($post);
 
         if(isset($attributes['thumbnail'])){
-            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails','public');
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('images');
         }
 
         $post->update($attributes);
