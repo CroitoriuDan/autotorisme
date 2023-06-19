@@ -29,7 +29,7 @@
         <nav class="md:flex md:justify-between md:items-center">
             <div>
                 <a href="/">
-                    <img src="/images/logo.svg" alt="Logo" width="165" height="16">
+                    <img src="/images/car.png" alt="Logo" width="165" height="16">
                 </a>
             </div>
 
