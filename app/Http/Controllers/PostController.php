@@ -28,4 +28,9 @@ class PostController extends Controller
         ]);
     }
 
+    public function track()
+    {
+        return view('tracking');
+    }
+
 }
