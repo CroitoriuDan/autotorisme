@@ -55,6 +55,9 @@
                     <div class="space-y-4 lg:text-lg leading-loose">
                         Kilometers:{!!$post->kilometers!!}
                     </div>
+                    <div class="space-y-4 lg:text-lg leading-loose underline">
+                        <a href="/tracking">Show Approximate Location</a>
+                    </div>
                 </div>
 
 
